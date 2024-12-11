@@ -52,6 +52,12 @@
       <artifactId>endpoints-framework</artifactId>
       <version>${endpoints.framework.version}</version>
     </dependency>
+   <dependency>
+  <groupId>org.eclipse.rdf4j</groupId>
+  <artifactId>rdf4j-runtime</artifactId>
+  <version>3.7.3</version>
+</dependency>
+
     <!-- [START api_management] -->
     <dependency>
       <groupId>com.google.endpoints</groupId>
