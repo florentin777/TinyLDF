@@ -89,12 +89,12 @@ public class MsgIndex extends HttpServlet {
 <span class="nc" id="L89">		ArrayList&lt;Key&gt; keys=new ArrayList&lt;Key&gt;();</span>
 <span class="nc bnc" id="L90" title="All 2 branches missed.">		for (Entity entity : result) {</span>
 <span class="nc" id="L91">			keys.add(entity.getParent());</span>
-		}
+<span class="nc" id="L92">		}</span>
 		
 <span class="nc" id="L94">		Map&lt;Key, Entity&gt; msgs=datastore.get(keys); // Get all keys in parallel</span>
 <span class="nc bnc" id="L95" title="All 2 branches missed.">		for (Entity msg : msgs.values()) {</span>
 <span class="nc" id="L96">			response.getWriter().append(&quot;&lt;li&gt;&quot;+msg.getProperty(&quot;body&quot;));</span>
-		}
+<span class="nc" id="L97">		}</span>
 		
 <span class="nc" id="L99">	}</span>
 

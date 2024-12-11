@@ -39,7 +39,7 @@ import  java.util.concurrent.ThreadLocalRandom;
 	public LocalDate between(LocalDate startInclusive, LocalDate endExclusive) {
 <span class="nc" id="L40">	    long startEpochDay = startInclusive.toEpochDay();</span>
 <span class="nc" id="L41">	    long endEpochDay = endExclusive.toEpochDay();</span>
-<span class="nc" id="L42">	    long randomDay = ThreadLocalRandom</span>
+	    long randomDay = ThreadLocalRandom
 <span class="nc" id="L43">	    	      .current()</span>
 <span class="nc" id="L44">	    	      .nextLong(startEpochDay, endEpochDay);</span>
 <span class="nc" id="L45">	    return LocalDate.ofEpochDay(randomDay);</span>

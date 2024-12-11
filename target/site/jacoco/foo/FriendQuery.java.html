@@ -56,8 +56,8 @@ import com.google.appengine.repackaged.com.google.datastore.v1.PropertyFilter;
 		
 <span class="nc" id="L57">		Query q = new Query(&quot;Friend&quot;)</span>
 <span class="nc" id="L58">				.setFilter(CompositeFilterOperator.and(</span>
-<span class="nc" id="L59">						new FilterPredicate(&quot;friends&quot;, FilterOperator.EQUAL, &quot;f0&quot;),</span>
-<span class="nc" id="L60">						new FilterPredicate(&quot;friends&quot;, FilterOperator.EQUAL, &quot;f0&quot;),</span>
+						new FilterPredicate(&quot;friends&quot;, FilterOperator.EQUAL, &quot;f0&quot;),
+						new FilterPredicate(&quot;friends&quot;, FilterOperator.EQUAL, &quot;f0&quot;),
 <span class="nc" id="L61">						new FilterPredicate(&quot;age&quot;, FilterOperator.GREATER_THAN_OR_EQUAL, 0),</span>
 <span class="nc" id="L62">						new FilterPredicate(&quot;age&quot;, FilterOperator.LESS_THAN_OR_EQUAL, 100) //and &gt;= ??</span>
 						)); //and &gt;= ??
@@ -68,7 +68,7 @@ import com.google.appengine.repackaged.com.google.datastore.v1.PropertyFilter;
 <span class="nc" id="L68">		response.getWriter().print(&quot;&lt;li&gt; result:&quot; + result.size() + &quot;&lt;br&gt;&quot;);</span>
 <span class="nc bnc" id="L69" title="All 2 branches missed.">		for (Entity entity : result) {</span>
 <span class="nc" id="L70">			response.getWriter().print(&quot;&lt;li&gt;&quot; + entity.getProperty(&quot;firstName&quot;));</span>
-		}
+<span class="nc" id="L71">		}</span>
 
 		//Entity e=new Entity(&quot;Friend&quot;,&quot;f0&quot;);
 		//try {

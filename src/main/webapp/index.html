@@ -2,12 +2,50 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
 <meta http-equiv="content-type"
-	content="application/xhtml+xml; charset=UTF-8" />
-<title>Hello App Engine</title>
+    content="application/xhtml+xml; charset=UTF-8" />
+<title>Wikidata Query</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-	<h1>Main de TinyLDF</h1>
-
+    <header>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1 >wikidata</h1>
+            <img src="ld_logo.png" alt="#LD" style="height: 40px;">
+        </div>
+		<h1 class="rouge">Wikidata</h1>
+    </header>
+    <main>
+        <section class="query">
+            <h2>Query Wikidata by triple pattern</h2>
+            <form action="#">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" style="border: none; border-bottom: 1px solid #ccc;">
+                <br>
+                <label for="predicate">Predicate:</label>
+                <input type="text" id="predicate" name="predicate" style="border: none; border-bottom: 1px solid #ccc;">
+                <br>
+                <label for="object">Object:</label>
+                <input type="text" id="object" name="object" style="border: none; border-bottom: 1px solid #ccc;">
+                <br>
+                <button type="submit">Find matching triples</button>
+            </form>
+        </section>
+        <section class="results">
+            <h2>Matches in Wikidata for</h2>
+            <p>Showing triples 1 to 101 of &plusmn; 16,356,903,055 with 100 triples per page. <a href="#">next</a></p>
+            <ul class="triples">
+                <li><strong>Dump.</strong> <span class="property">license</span></li>
+                <li><strong>Dump.</strong> <span class="property">softwareVersion</span> "1.0.0"</li>
+                <li><strong>Dump.</strong> <span class="property">dateModified</span> "2023-01-30T23:00:08Z"^^http://www.w3.org/2001/XMLSchema#dateTime</li>
+                <li><strong>Dump.</strong> <span class="property">dateModified</span> "2023-01-30T23:13:36Z"^^http://www.w3.org/2001/XMLSchema#dateTime</li>
+                <li><strong>Dump.</strong> <span class="property">dateModified</span> "2023-01-30T23:13:38Z"^^http://www.w3.org/2001/XMLSchema#dateTime</li>
+                <li><strong>Dump.</strong> <span class="property">dateModified</span> "2023-01-30T23:13:39Z"^^http://www.w3.org/2001/XMLSchema#dateTime</li>
+                <li><strong>Dump.</strong> <span class="property">dateModified</span> "2023-01-30T23:13:41Z"^^http://www.w3.org/2001/XMLSchema#dateTime</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>Powered by a Linked Data Fragments Server &copy;2013–2024 Ghent University - imec</p>
+    </footer>
 </body>
 </html>

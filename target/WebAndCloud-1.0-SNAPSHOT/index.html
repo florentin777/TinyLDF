@@ -2,60 +2,50 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
 <meta http-equiv="content-type"
-	content="application/xhtml+xml; charset=UTF-8" />
-<title>Hello App Engine</title>
+    content="application/xhtml+xml; charset=UTF-8" />
+<title>Wikidata Query</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-	<h1>Web and Cloud</h1>
-
-Be sure you loaded this page with "https://"
-
-<h2>Check if it works</h2>
-	<li><a href='/hello'>The servlet Hello world</a>
-	
-<h2>Check login Google</h2>	
-	<li><a href="https://developers.google.com/identity/sign-in/web/sign-in#before_you_begin">see docs</a>
-	<li><a href='/userapi'>Login with Google (servlet)</a>
-	<li><a href='/glogin-new.html'>Login with Google (javascript new)</a>
-	
-	
-<h2>Simple Javascript to call Rest Interface</h2>
-	<li><a href='/_ah/api/myApi/v1/topscores'>REST Call topscores</a>
-	<li><a href='/index3.html'>Scores with Mithril</a>
-	<li><a href='/index2.html'>Scores with React</a>
-
-<h2>Understanding contention with counters</h2>
-	<li><a href='/count'>Counter no transaction</a>
-	<li><a href='/counttr'>Counter with transactions</a>
-	<li><a href='/countsh'>Sharded Counter with transactions</a>
-
-
-<h2>Data Queries for managing Friends</h2>	
-	<li><a href='/friends'>Populate the Friend table (long)</a>
-	<li><a href='/query'>Query the Friend table</a>
-	
-<h2>Data Queries for managing Posts</h2>	
-	<li><a href='/prefixclean'>clean post data (long)</a>
-	<li><a href='/prefix'>install post data (long)</a>
-	<li><a href='/prefixquery'>Raw queries on post data</a>
-    <li><a href='/post.html'>Unsecure MyPost</a>
-    <li><a href='/glogin-mithril.html'>Secure MyPost</a>
-	<li><a href='/MsgIndex'>Msg - MsgIndex - Key/Parent Key</a>
-	
-<h2>Data Queries for managing Petitions</h2>	
-	<li><a href='/petition'>install petition like data (long)</a>
-	<li><a href='/pquery'>query petition data</a>
-			
-
-<h1>Fetch scores below:</h1>
-
-
-		<p id="toto"></p> <script>
-    const url = "_ah/api/myApi/v1/topscores"
-    fetch(url)
-    .then(response => response.text())
-    .then(data => document.getElementById('toto').innerHTML = data)
-  </script>
+    <header>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1 >wikidata</h1>
+            <img src="ld_logo.png" alt="#LD" style="height: 40px;">
+        </div>
+		<h1 class="rouge">Wikidata</h1>
+    </header>
+    <main>
+        <section class="query">
+            <h2>Query Wikidata by triple pattern</h2>
+            <form action="#">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" style="border: none; border-bottom: 1px solid #ccc;">
+                <br>
+                <label for="predicate">Predicate:</label>
+                <input type="text" id="predicate" name="predicate" style="border: none; border-bottom: 1px solid #ccc;">
+                <br>
+                <label for="object">Object:</label>
+                <input type="text" id="object" name="object" style="border: none; border-bottom: 1px solid #ccc;">
+                <br>
+                <button type="submit">Find matching triples</button>
+            </form>
+        </section>
+        <section class="results">
+            <h2>Matches in Wikidata for</h2>
+            <p>Showing triples 1 to 101 of &plusmn; 16,356,903,055 with 100 triples per page. <a href="#">next</a></p>
+            <ul class="triples">
+                <li><strong>Dump.</strong> <span class="property">license</span></li>
+                <li><strong>Dump.</strong> <span class="property">softwareVersion</span> "1.0.0"</li>
+                <li><strong>Dump.</strong> <span class="property">dateModified</span> "2023-01-30T23:00:08Z"^^http://www.w3.org/2001/XMLSchema#dateTime</li>
+                <li><strong>Dump.</strong> <span class="property">dateModified</span> "2023-01-30T23:13:36Z"^^http://www.w3.org/2001/XMLSchema#dateTime</li>
+                <li><strong>Dump.</strong> <span class="property">dateModified</span> "2023-01-30T23:13:38Z"^^http://www.w3.org/2001/XMLSchema#dateTime</li>
+                <li><strong>Dump.</strong> <span class="property">dateModified</span> "2023-01-30T23:13:39Z"^^http://www.w3.org/2001/XMLSchema#dateTime</li>
+                <li><strong>Dump.</strong> <span class="property">dateModified</span> "2023-01-30T23:13:41Z"^^http://www.w3.org/2001/XMLSchema#dateTime</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>Powered by a Linked Data Fragments Server &copy;2013–2024 Ghent University - imec</p>
+    </footer>
 </body>
 </html>
