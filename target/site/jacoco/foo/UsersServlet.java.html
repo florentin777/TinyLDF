@@ -46,12 +46,12 @@ import javax.servlet.http.HttpServletResponse;
 <span class="nc bnc" id="L46" title="All 2 branches missed.">   if (req.getUserPrincipal() != null) {</span>
 <span class="nc" id="L47">     resp.getWriter()</span>
 <span class="nc" id="L48">         .println(</span>
-<span class="nc" id="L49">             &quot;&lt;p&gt;Hello, &quot;</span>
+             &quot;&lt;p&gt;Hello, &quot;
 <span class="nc" id="L50">                 + req.getUserPrincipal().getName()</span>
                  + &quot;!  You can &lt;a href=\&quot;&quot;
 <span class="nc" id="L52">                 + userService.createLogoutURL(thisUrl)</span>
                  + &quot;\&quot;&gt;sign out&lt;/a&gt;.&lt;/p&gt;&quot;);
-<span class="nc" id="L54">   } else {</span>
+   } else {
 <span class="nc" id="L55">     resp.getWriter()</span>
 <span class="nc" id="L56">         .println(</span>
 <span class="nc" id="L57">             &quot;&lt;p&gt;Please &lt;a href=\&quot;&quot; + userService.createLoginURL(thisUrl) + &quot;\&quot;&gt;sign in&lt;/a&gt;.&lt;/p&gt;&quot;);</span>

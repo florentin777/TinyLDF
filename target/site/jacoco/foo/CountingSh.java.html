@@ -89,19 +89,19 @@ import com.google.appengine.api.datastore.Transaction;
 <span class="nc" id="L89">			} catch (InterruptedException e1) {</span>
 				// TODO Auto-generated catch block
 <span class="nc" id="L91">				e1.printStackTrace();</span>
-			}
+<span class="nc" id="L92">			}</span>
 		}
 		
 		try {
 <span class="nc" id="L96">			Long count=(long) 0;</span>
 <span class="nc bnc" id="L97" title="All 2 branches missed.">			for (Entity e : mycounter) {</span>
 <span class="nc" id="L98">				count+=(long)datastore.get(e.getKey()).getProperty(&quot;val&quot;);</span>
-			} 
+<span class="nc" id="L99">			} </span>
 <span class="nc" id="L100">			response.getWriter().print(&quot;final value:&quot;+count);</span>
 <span class="nc" id="L101">		} catch (EntityNotFoundException e1) {</span>
 			// TODO Auto-generated catch block
 <span class="nc" id="L103">			e1.printStackTrace();</span>
-		}
+<span class="nc" id="L104">		}</span>
 <span class="nc" id="L105">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

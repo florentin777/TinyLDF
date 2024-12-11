@@ -51,7 +51,7 @@ public class Consistency extends HttpServlet {
 <span class="nc" id="L51">		List&lt;Entity&gt; result = pq.asList(FetchOptions.Builder.withDefaults());</span>
 <span class="nc bnc" id="L52" title="All 2 branches missed.">		for (Entity entity : result) {</span>
 <span class="nc" id="L53">			datastore.delete(entity.getKey());</span>
-			}	
+<span class="nc" id="L54">			}	</span>
 		}
 <span class="nc" id="L56">	}</span>
 
@@ -85,7 +85,7 @@ public class Consistency extends HttpServlet {
 <span class="nc" id="L85">					} catch (InterruptedException e1) {</span>
 						// TODO Auto-generated catch block
 <span class="nc" id="L87">						e1.printStackTrace();</span>
-					}
+<span class="nc" id="L88">					}</span>
 				}
 <span class="nc" id="L90">			}</span>
 		});
@@ -108,7 +108,7 @@ public class Consistency extends HttpServlet {
 <span class="nc" id="L108">					} catch (InterruptedException e1) {</span>
 						// TODO Auto-generated catch block
 <span class="nc" id="L110">						e1.printStackTrace();</span>
-					}
+<span class="nc" id="L111">					}</span>
 				}
 <span class="nc" id="L113">				txn.commit();</span>
 <span class="nc" id="L114">			}</span>
@@ -134,7 +134,7 @@ public class Consistency extends HttpServlet {
 <span class="nc" id="L134">						} catch (InterruptedException e) {</span>
 							// TODO Auto-generated catch block
 <span class="nc" id="L136">							e.printStackTrace();</span>
-						}
+<span class="nc" id="L137">						}</span>
 					}
 	//				txn.commit();
 <span class="nc" id="L140">				}</span>
@@ -152,7 +152,7 @@ public class Consistency extends HttpServlet {
 <span class="nc" id="L152">		} catch (InterruptedException e) {</span>
 			// TODO Auto-generated catch block
 <span class="nc" id="L154">			e.printStackTrace();</span>
-		}
+<span class="nc" id="L155">		}</span>
 
 <span class="nc" id="L157">		response.getWriter().append(&quot;&lt;h1&gt; Inserting while quering Entity Group&lt;/h1&gt;&quot;);</span>
 
@@ -167,7 +167,7 @@ public class Consistency extends HttpServlet {
 <span class="nc" id="L167">		} catch (InterruptedException e) {</span>
 			// TODO Auto-generated catch block
 <span class="nc" id="L169">			e.printStackTrace();</span>
-		}
+<span class="nc" id="L170">		}</span>
 		
 <span class="nc" id="L172">	}</span>
 }
