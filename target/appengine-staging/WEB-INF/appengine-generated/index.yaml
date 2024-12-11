@@ -1,0 +1,16 @@
+indexes:
+- kind: "Friend"
+  properties:
+  - name: "friends"
+  - name: "age"
+- kind: "Score"
+  properties:
+  - name: "name"
+  - name: "score"
+    direction: desc
+- kind: "Score"
+  properties:
+  - name: "name"
+    direction: asc
+  - name: "score"
+    direction: desc
