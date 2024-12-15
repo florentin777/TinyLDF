@@ -12,6 +12,8 @@
     </include>
     <include path="/**.css" >
     </include>
+    <include path="/**.svg" >
+    </include>
 
     
   </static-files>
