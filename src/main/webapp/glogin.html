@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Login</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        // Configuration Google
+        function handleCredentialResponse(response) {
+            const token = response.credential;
+
+            // Extraire les informations utilisateur
+            const userId = decodeJwt(token).sub;
+
+            // Envoyer une requête POST pour ajouter l'utilisateur au backend
+            fetch('/_ah/api/myTinyLDF/v1/addUser', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    token: token,
+                    userId: userId
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erreur lors de la création de l’utilisateur.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert(`Utilisateur ajouté : ${data.properties.mail}`);
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+            });
+        }
+
+        // Décoder JWT pour obtenir les informations utilisateur
+        function decodeJwt(token) {
+            const payload = token.split('.')[1];
+            return JSON.parse(atob(payload));
+        }
+    </script>
+</head>
+<body>
+    <h1>Google Login</h1>
+    <div id="g_id_onload"
+         data-client_id="1042893705344-ba9l671424s8uhqp9pdrt6jqgq9u69k7.apps.googleusercontent.com"
+         data-callback="handleCredentialResponse"
+         data-auto_prompt="false">
+    </div>
+    <div class="g_id_signin"
+         data-type="standard"
+         data-shape="rectangular"
+         data-theme="outline"
+         data-text="sign_in_with"
+         data-size="large"
+         data-logo_alignment="left">
+    </div>
+</body>
+</html>
