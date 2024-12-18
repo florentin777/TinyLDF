@@ -1,9 +1,45 @@
 const App = {
+  subject: "",
+  predicate: "",
+  object: "",
+  results: null, // pour stocker les résultats de la requête
+  loading: false,
+  error: null,
+
+  fetchResults: function() {
+    App.loading = true;
+    App.results = null;
+    App.error = null;
+
+    let params = [];
+    if (App.subject) params.push('subject=' + encodeURIComponent(App.subject));
+    if (App.predicate) params.push('predicate=' + encodeURIComponent(App.predicate));
+    if (App.object) params.push('object=' + encodeURIComponent(App.object));
+
+    let url = '/_ah/api/myTinyLDF/v1/ldf?' + params.join('&');
+ 
+    // m.request permet de faire une requête AJAX. On suppose que ton endpoint renvoie du texte (N-Quads).
+    // Si ton endpoint renvoie du JSON, remplace 'text' par 'json' et adapte la logique.
+    m.request({
+      method: "GET",
+      url: url,
+      deserialize: x => x // on suppose un format texte brut
+    }).then(data => {
+      App.loading = false;
+      App.results = data;
+    }).catch(err => {
+      App.loading = false;
+      App.error = err.message;
+    });
+  },
+
   view: () =>
     m("div", { style: "max-width: 800px; margin: 0 auto; font-family: Arial, sans-serif;" }, [
       // Header
       m("header", [
-        m("h1", { style: "display: inline-block;" }, m("a", { href: "/", style: "text-decoration: none; color: black;" }, "Wikidata")),
+        m("h1", { style: "display: inline-block;" },
+          m("a", { href: "/", style: "text-decoration: none; color: black;" }, "Wikidata")
+        ),
         m("figure", { class: "logo", style: "float: right;" }, [
           m("a", m("img", { src: "assets/logo.svg", alt: "Linked Data Fragments", style: "width: 160px;" }))
         ])
@@ -13,28 +49,51 @@ const App = {
       m("main", [
         m("h2", "Wikidata"),
 
-        // Form
-        m("form", { action: "?", method: "GET", property: "hydra:search", resource: "#triplePattern" }, [
+        // Formulaire sans action/method, géré par Mithril
+        m("form", {
+          onsubmit: function(e) {
+            e.preventDefault(); // Empêche le rechargement de la page
+            App.fetchResults();
+          },
+          property: "hydra:search", resource: "#triplePattern", style: "margin-bottom:20px;"
+        }, [
           m("fieldset", { resource: "#triplePattern", style: "border: none;" }, [
             m("legend", "Query Wikidata by triple pattern"),
             m("ul", { style: "list-style: none; padding: 0;" }, [
-              ["subject", "Subject"],
-              ["predicate", "Predicate"],
-              ["object", "Object"]
-            ].map(([id, label]) =>
-              m("li", { property: "hydra:mapping", resource: `#${id}`, style: "margin-bottom: 10px;" }, [
-                m("label", { for: id, style: "display: block; font-weight: bold;" }, label),
+              m("li", { style: "margin-bottom: 10px;" }, [
+                m("label", { for: "subject", style: "display: block; font-weight: bold;" }, "Subject"),
                 m("input", {
                   class: "uri",
-                  id,
-                  name: id,
-                  about: `#${id}`,
-                  property: "hydra:property",
-                  resource: `rdf:${id}`,
-                  style: "width: 100%; padding: 5px;"
+                  id: "subject",
+                  name: "subject",
+                  style: "width: 100%; padding: 5px;",
+                  oninput: (e) => App.subject = e.target.value,
+                  value: App.subject
+                })
+              ]),
+              m("li", { style: "margin-bottom: 10px;" }, [
+                m("label", { for: "predicate", style: "display: block; font-weight: bold;" }, "Predicate"),
+                m("input", {
+                  class: "uri",
+                  id: "predicate",
+                  name: "predicate",
+                  style: "width: 100%; padding: 5px;",
+                  oninput: (e) => App.predicate = e.target.value,
+                  value: App.predicate
+                })
+              ]),
+              m("li", { style: "margin-bottom: 10px;" }, [
+                m("label", { for: "object", style: "display: block; font-weight: bold;" }, "Object"),
+                m("input", {
+                  class: "uri",
+                  id: "object",
+                  name: "object",
+                  style: "width: 100%; padding: 5px;",
+                  oninput: (e) => App.object = e.target.value,
+                  value: App.object
                 })
               ])
-            ))
+            ])
           ]),
           m("p", [
             m("input", {
@@ -45,29 +104,15 @@ const App = {
           ])
         ]),
 
-        // Matches Section
-        m("h3", "Matches in Wikidata for ", m("em", { class: "pattern" })),
-        m("div", { class: "counts", style: "color: gray;" }, [
-          "Showing triples {a} to {b} of ± ",
-          m("span", { property: "void:triples hydra:totalItems", datatype: "xsd:integer" }, "{nb_ttl}"),
-          " with ",
-          m("span", { property: "hydra:itemsPerPage", datatype: "xsd:integer" }, "100"),
-          " triples per page.",
-          m("ul", { class: "links", style: "margin: 0; padding: 0;" }, [
-            m("li", { style: "display: inline;" }, "next")
+        // Affichage des résultats
+        App.loading ? m("p", "Loading...") : null,
+        App.error ? m("p", {style:"color:red;"}, "Error: " + App.error) : null,
+        App.results ? 
+          m("div", [
+            m("h3", "Matches in Wikidata"),
+            m("pre", {style:"white-space: pre-wrap; word-wrap: break-word;"}, App.results)
           ])
-        ]),
-
-        // Triples List
-        m("ul", { class: "triples", style: "font-family: 'Droid Sans Mono', monospace; overflow-x: auto;" }, [
-          m("li", [
-            m("a", { href: "?subject=http%3A%2F%2Fwikiba.se%2Fontology%23Dump" }, "Dump"),
-            m("a", { href: "?predicate=http%3A%2F%2Fcreativecommons.org%2Fns%23license", style: "margin: 0 1em;" }, "license"),
-            m("a", { href: "?object=http%3A%2F%2Fcreativecommons.org%2Fpublicdomain%2Fzero%2F1.0%2F" }, "Public Domain")
-          ])
-        ]),
-
-        m("ul", { class: "links", style: "margin-top: 20px;" }, [m("li", "next")])
+        : null
       ]),
 
       // Footer
@@ -81,5 +126,6 @@ const App = {
     ])
 };
 
-// Nettoie le contenu du body avant le montage
+// Monte l'application Mithril dans le body
 m.mount(document.body, App);
+
