@@ -28,11 +28,6 @@
       <id>central</id>
       <url>https://repo.maven.apache.org/maven2</url>
     </repository>
-    <repository>
-      <id>rdf4j-releases</id>
-      <name>RDF4J Releases</name>
-      <url>https://repo.eclipse.org/content/repositories/rdf4j-releases/</url>
-    </repository>
   </repositories>
 
   <dependencies>
@@ -75,13 +70,12 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- Ajout d'une dépendance RDF4J adaptée (par exemple rdf4j-client) -->
+    <!-- Dépendance RDF4J (exemple : rdf4j-http-client) -->
     <dependency>
       <groupId>org.eclipse.rdf4j</groupId>
-      <artifactId>rdf4j-client</artifactId>
+      <artifactId>rdf4j-http-client</artifactId>
       <version>3.7.4</version>
     </dependency>
-
   </dependencies>
 
   <build>
