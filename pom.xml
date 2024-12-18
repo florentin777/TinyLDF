@@ -69,14 +69,6 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- Dépendance RDF4J -->
-    <dependency>
-      <groupId>org.eclipse.rdf4j</groupId>
-      <artifactId>rdf4j-client</artifactId>
-      <version>3.7.4</version>
-    </dependency>
-  </dependencies>
-
   <build>
     <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
     <plugins>
