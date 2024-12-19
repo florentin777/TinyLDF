@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>TinyLDF</title>
+    <script src="https://unpkg.com/mithril/mithril.js"></script>
+    <link rel="stylesheet" href="/assets/style.css">
+
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <div id="tiny"></div>
+
+    <script>
+      var Header = { 
+        user: "Guest",
+        userPhoto: '/assets/user.png',
+        view: function(){
+          return m('header',[
+            m('div',{class:"connection"}, [
+              m('div', {class:"user"}, [
+                m('img',{src:Header.userPhoto, alt:'user'}),
+                m('p', Header.user)
+              ]),
+              m('div', [
+                m('div',{id:"g_id_onload", 'data-client_id':"713479375872-t1vcih65lhtvs239h5lrqh9f1d0gt3q2.apps.googleusercontent.com", 'data-callback':"handleCredentialResponse"}),
+                m('div', {class:'g_id_signin', 'data-type':"standard"})
+              ])
+              
+            ]),
+            m('div',[
+              m('h1', "JoTinyLDF"),
+              m('div', {class:'logo'}, 
+                m("a", {href:"https://query.wikidata.org"}, 
+                m('img',{src:'/assets/logo.svg', alt:'Linked Data Fragments'}))
+              )
+            ])
+          ])
+        }
+      }
+      var Main = { 
+        view: function(){
+          const pageSize = 50;
+          
+          const startIndex = Main.currentPage * pageSize + 1;
+          const endIndex = startIndex + Main.results.length - 1;
+
+          return m('main', [
+            m('div', [
+              m('h2', m("a", {href:"https://query.wikidata.org"}, "TinyLDF")),
+              m('h3', "Query JoTinyLDF by triple pattern"),
+              m('form', {
+                onsubmit: Main.handleSubmit
+              }, [
+                m('fieldset', [
+                  m('ul', [
+                    m('li', {resource:"#subject"}, [
+                      m('label', {for:"subject", about:"#subject"}, 'subject :'),
+                      m('input', {class:"uri", id:"subject", name:"subject", about:"subject", resource:"rdf:subject"})
+                    ]),
+                    m('li', {resource:"#predicate"}, [
+                      m('label', {for:"predicate", about:"#predicate"}, 'predicate :'),
+                      m('input', {class:"uri", id:"predicate", name:"predicate", about:"predicate", resource:"rdf:predicate"})
+                    ]),
+                    m('li', {resource:"#object"}, [
+                      m('label', {for:"object", about:"#object"}, 'object :'),
+                      m('input', {class:"uri", id:"object", name:"object", about:"object", resource:"rdf:object"})
+                    ]),
+                    m('li', {resource:"#graph"}, [
+                      m('label', {for:"graph", about:"#graph"}, 'graph :'),
+                      m('input', {class:"uri", id:"graph", name:"graph", about:"graph", resource:"rdf:graph"})
+                    ])
+                  ])  
+                ]),
+                m('input', {type:"submit", value:"Find matching triples"})
+              ])
+            ]),
+            m('h3', "Matches in JoTinyLDF for"),
+            Main.results.length !== 0 &&
+            m('div', { class: 'counts' }, [
+                "Showing triples ",
+                m('span', { datatype: "xsd:integer" }, startIndex),
+                " to ",
+                m('span', { datatype: "xsd:integer" }, endIndex),
+                " with ",
+                m('span', { datatype: "xsd:integer" }, Main.results.length),
+                " quads per page.",
+                Main.results.length == 50 &&
+                m("a", {
+                    class: "next",
+                    href: "#",
+                    onclick: (e) => {
+                        e.preventDefault();
+                        
+                        Main.fetchNextPage();
+                    }
+                }, "next"),
+            ]),
+            m('div', { class: 'execution-time' }, `Execution time (ms): ${Main.executionTime}`),
+            m('table', {class:'triples'}, [
+              m('thead', [
+                m('tr', [
+                  m('th', "Subject"),
+                  m('th', "Predicate"),
+                  m('th', "Object"),
+                  m('th', "Graph")
+                ])
+              ]),
+              m('tbody', [
+                Main.results && Main.results.map(function(result) {
+                  return m('tr', [
+                    m('td', m('a', {class:"uri", href: result.properties.subject, target: '_blank' }, result.properties.subject)),
+                    m('td', m('a', {class:"uri", href: result.properties.predicate, target: '_blank' }, result.properties.predicate)),
+                    m('td', m('a', {class:"uri", href: result.properties.object, target: '_blank' }, result.properties.object)),
+                    m('td', m('a', {class:"uri", href: result.properties.graph, target: '_blank' }, result.properties.graph))
+                  ]);
+                })
+              ])
+            ]),
+            Main.results.length == 50 &&
+                m("a", {
+                    class: "next",
+                    href: "#",
+                    onclick: (e) => {
+                        e.preventDefault();
+                        
+                        Main.fetchNextPage();
+                    }
+                }, "next"),
+          ]);
+        },
+
+        
+        results: [],
+        nextCursor: null,
+        currentPage: -1,
+        executionTime: 0,
+
+        
+        fetchData: function(subject, predicate, object, graph, cursor = null) {
+          const startTime = performance.now();
+          
+          let apiUrl = `${window.location.origin}/_ah/api/myTinyApi/v1/ldf?`;
+          const params = new URLSearchParams();
+
+          if (subject) params.append('subject', subject);
+          if (predicate) params.append('predicate', predicate);
+          if (object) params.append('object', object);
+          if (graph) params.append('graph', graph);
+          if (cursor) params.append('cursor', cursor);
+
+          apiUrl += params.toString(); 
+          console.log("apiCall:", apiUrl);
+
+        
+          m.request({
+            method: 'GET',
+            url: apiUrl,
+          })
+            .then(function (response) {
+              console.log("Response:", response); 
+              Main.results = response.items || []; 
+              Main.nextCursor = response.nextPageToken || null;
+              Main.currentPage = (cursor && Main.results.length !== 0) ? Main.currentPage + 1 : 0; 
+              const endTime = performance.now();
+              Main.executionTime = (endTime - startTime).toFixed(2);
+              m.redraw();
+            })
+            .catch(function (error) {
+              console.error("Error:", error); 
+            });
+        },
+
+        
+        handleSubmit: function (e) {
+        e.preventDefault();
+          const subject = document.getElementById("subject").value.trim();
+          const predicate = document.getElementById("predicate").value.trim();
+          const object = document.getElementById("object").value.trim();
+          const graph = document.getElementById("graph").value.trim();
+          Main.fetchData(subject, predicate, object, graph);
+        },
+
+        
+        fetchNextPage: function () {
+          const subject = document.getElementById("subject").value.trim();
+          const predicate = document.getElementById("predicate").value.trim();
+          const object = document.getElementById("object").value.trim();
+          const graph = document.getElementById("graph").value.trim();
+          Main.fetchData(subject, predicate, object, graph, Main.nextCursor);
+        }
+      }
+
+      var NewQuads = {
+        authentificated: false,
+
+        view: function() {
+          if (!NewQuads.authentificated) {
+            return [
+              m('h2', { style: 'margin-top:20px' }, "New quads "),
+              m('p', "To insert new quads, you must be authenticated !")
+            ];
+          } else {
+            return m('div', { style: 'margin-top:20px' }, [
+              m('h2', { style: 'margin-top:20px' }, "New quads "),
+              m('h3', "Insert new quads in the dataset"),
+              m('form', {
+                onsubmit: function(e) {
+                  e.preventDefault();
+                  const subject = document.getElementById("subject2").value.trim();
+                  const predicate = document.getElementById("predicate2").value.trim();
+                  const object = document.getElementById("object2").value.trim();
+                  const graph = document.getElementById("graph2").value.trim();
+
+                  if (!subject) {
+                    alert("The 'subject' field cannot be empty");
+                    return;
+                  }
+                  if (!predicate) {
+                    alert("The 'predicate' field cannot be empty");
+                    return;
+                  }
+                  if (!object) {
+                    alert("The 'object' field cannot be empty");
+                    return;
+                  }
+                  if (!graph) {
+                    alert("The 'graph' field cannot be empty");
+                    return;
+                  }
+
+                  const accessToken = 'your_access_token_here'; 
+                  const apiUrl = `${window.location.origin}/_ah/api/myTinyApi/v1/addQuadSec?subject=${encodeURIComponent(subject)}&predicate=${encodeURIComponent(predicate)}&object=${encodeURIComponent(object)}&graph=${encodeURIComponent(graph)}&access_token=${NewQuads.accessToken}`;
+
+                  console.log("API Call:", apiUrl);
+
+                  m.request({
+                    method: 'GET',
+                    url: apiUrl
+                  })
+                    .then(function(response) {
+                      console.log("Response:", response);
+                      alert("Quad added successfully!");
+                    })
+                    .catch(function(error) {
+                      console.error("Error:", error);
+                      alert("Failed to add quad. Please try again.");
+                    });
+                }
+              }, [
+                m('fieldset', [
+                  m('ul', [
+                    m('li', { resource: "#subject" }, [
+                      m('label', { for: "subject2", about: "#subject2" }, 'subject :'),
+                      m('input', { class: "uri", id: "subject2", name: "subject2", about: "subject2", resource: "rdf:subject" })
+                    ]),
+                    m('li', { resource: "#predicate" }, [
+                      m('label', { for: "predicate2", about: "#predicate2" }, 'predicate :'),
+                      m('input', { class: "uri", id: "predicate2", name: "predicate2", about: "predicate2", resource: "rdf:predicate" })
+                    ]),
+                    m('li', { resource: "#object" }, [
+                      m('label', { for: "object2", about: "#object2" }, 'object :'),
+                      m('input', { class: "uri", id: "object2", name: "object2", about: "object2", resource: "rdf:object" })
+                    ]),
+                    m('li', { resource: "#graph" }, [
+                      m('label', { for: "graph2", about: "#graph2" }, 'graph :'),
+                      m('input', { class: "uri", id: "graph2", name: "graph2", about: "graph2", resource: "rdf:graph" })
+                    ]),
+                  ])
+                ]),
+                m('input', { type: "submit", value: "Insert" })
+              ])
+            ]);
+          }
+        }
+      };
+      var TinyLDF = {
+        view:function (){ 
+          return [m(Header), m(Main), m(NewQuads)]
+        }
+      }
+
+      function handleCredentialResponse(response) { 
+        const responsePayload = jwt_decode(response.credential);
+        const url = "_ah/api/myTinyApi/v1/Hello"+'?access_token=' + response.credential
+          fetch(url)
+          .then(response => response.text())
+          .then(data => {
+            NewQuads.authentificated=true;
+            NewQuads.accessToken = response.credential;
+            console.log("User logged in : "+ responsePayload.given_name);
+            console.log("Token : "+ response.credential);
+            Header.user = responsePayload.given_name;
+            Header.userPhoto = responsePayload.picture;
+            m.redraw();
+          });
+      }
+      m.mount(document.getElementById('tiny'), TinyLDF)
+    </script>
+  </body>
+</html>
