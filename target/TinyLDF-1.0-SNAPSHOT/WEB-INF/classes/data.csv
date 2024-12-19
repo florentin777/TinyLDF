@@ -1,0 +1,102 @@
+Nom/ID,subject,predicate,object,graph
+q0,<http://fr.dbpedia.org/resource/Goroka_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Goroka,http://MonSchema
+q1,<http://fr.dbpedia.org/resource/Goroka_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Papua New Guinea,http://MonSchema
+q2,<http://fr.dbpedia.org/resource/Goroka_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,-6.0816898345900015,http://MonSchema
+q3,<http://fr.dbpedia.org/resource/Goroka_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,145.391998291,http://MonSchema
+q4,<http://fr.dbpedia.org/resource/Goroka_Airport>,<http://dbpedia.org/ontology/alitude>,5282,http://MonSchema
+q5,<http://fr.dbpedia.org/resource/Madang_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Madang,http://MonSchema
+q6,<http://fr.dbpedia.org/resource/Madang_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Papua New Guinea,http://MonSchema
+q7,<http://fr.dbpedia.org/resource/Madang_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,-5.20707988739,http://MonSchema
+q8,<http://fr.dbpedia.org/resource/Madang_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,145.789001465,http://MonSchema
+q9,<http://fr.dbpedia.org/resource/Madang_Airport>,<http://dbpedia.org/ontology/alitude>,20,http://MonSchema
+q10,<http://fr.dbpedia.org/resource/Mount_Hagen_Kagamuga_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Mount Hagen,http://MonSchema
+q11,<http://fr.dbpedia.org/resource/Mount_Hagen_Kagamuga_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Papua New Guinea,http://MonSchema
+q12,<http://fr.dbpedia.org/resource/Mount_Hagen_Kagamuga_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,-5.826789855957031,http://MonSchema
+q13,<http://fr.dbpedia.org/resource/Mount_Hagen_Kagamuga_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,144.29600524902344,http://MonSchema
+q14,<http://fr.dbpedia.org/resource/Mount_Hagen_Kagamuga_Airport>,<http://dbpedia.org/ontology/alitude>,5388,http://MonSchema
+q15,<http://fr.dbpedia.org/resource/Nadzab_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Nadzab,http://MonSchema
+q16,<http://fr.dbpedia.org/resource/Nadzab_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Papua New Guinea,http://MonSchema
+q17,<http://fr.dbpedia.org/resource/Nadzab_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,-6.569803,http://MonSchema
+q18,<http://fr.dbpedia.org/resource/Nadzab_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,146.725977,http://MonSchema
+q19,<http://fr.dbpedia.org/resource/Nadzab_Airport>,<http://dbpedia.org/ontology/alitude>,239,http://MonSchema
+q20,<http://fr.dbpedia.org/resource/Port_Moresby_Jacksons_International_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Port Moresby,http://MonSchema
+q21,<http://fr.dbpedia.org/resource/Port_Moresby_Jacksons_International_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Papua New Guinea,http://MonSchema
+q22,<http://fr.dbpedia.org/resource/Port_Moresby_Jacksons_International_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,-9.443380355834961,http://MonSchema
+q23,<http://fr.dbpedia.org/resource/Port_Moresby_Jacksons_International_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,147.22000122070312,http://MonSchema
+q24,<http://fr.dbpedia.org/resource/Port_Moresby_Jacksons_International_Airport>,<http://dbpedia.org/ontology/alitude>,146,http://MonSchema
+q25,<http://fr.dbpedia.org/resource/Wewak_International_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Wewak,http://MonSchema
+q26,<http://fr.dbpedia.org/resource/Wewak_International_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Papua New Guinea,http://MonSchema
+q27,<http://fr.dbpedia.org/resource/Wewak_International_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,-3.5838301181800003,http://MonSchema
+q28,<http://fr.dbpedia.org/resource/Wewak_International_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,143.66900634799998,http://MonSchema
+q29,<http://fr.dbpedia.org/resource/Wewak_International_Airport>,<http://dbpedia.org/ontology/alitude>,19,http://MonSchema
+q30,<http://fr.dbpedia.org/resource/Narsarsuaq_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Narssarssuaq,http://MonSchema
+q31,<http://fr.dbpedia.org/resource/Narsarsuaq_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Greenland,http://MonSchema
+q32,<http://fr.dbpedia.org/resource/Narsarsuaq_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,61.1604995728,http://MonSchema
+q33,<http://fr.dbpedia.org/resource/Narsarsuaq_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,-45.4259986877,http://MonSchema
+q34,<http://fr.dbpedia.org/resource/Narsarsuaq_Airport>,<http://dbpedia.org/ontology/alitude>,112,http://MonSchema
+q35,<http://fr.dbpedia.org/resource/Godthaab_/_Nuuk_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Godthaab,http://MonSchema
+q36,<http://fr.dbpedia.org/resource/Godthaab_/_Nuuk_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Greenland,http://MonSchema
+q37,<http://fr.dbpedia.org/resource/Godthaab_/_Nuuk_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,64.19090271,http://MonSchema
+q38,<http://fr.dbpedia.org/resource/Godthaab_/_Nuuk_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,-51.678100585900005,http://MonSchema
+q39,<http://fr.dbpedia.org/resource/Godthaab_/_Nuuk_Airport>,<http://dbpedia.org/ontology/alitude>,283,http://MonSchema
+q40,<http://fr.dbpedia.org/resource/Kangerlussuaq_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Sondrestrom,http://MonSchema
+q41,<http://fr.dbpedia.org/resource/Kangerlussuaq_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Greenland,http://MonSchema
+q42,<http://fr.dbpedia.org/resource/Kangerlussuaq_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,67.0122218992,http://MonSchema
+q43,<http://fr.dbpedia.org/resource/Kangerlussuaq_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,-50.7116031647,http://MonSchema
+q44,<http://fr.dbpedia.org/resource/Kangerlussuaq_Airport>,<http://dbpedia.org/ontology/alitude>,165,http://MonSchema
+q45,<http://fr.dbpedia.org/resource/Thule_Air_Base>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Thule,http://MonSchema
+q46,<http://fr.dbpedia.org/resource/Thule_Air_Base>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Greenland,http://MonSchema
+q47,<http://fr.dbpedia.org/resource/Thule_Air_Base>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,76.5311965942,http://MonSchema
+q48,<http://fr.dbpedia.org/resource/Thule_Air_Base>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,-68.70320129390001,http://MonSchema
+q49,<http://fr.dbpedia.org/resource/Thule_Air_Base>,<http://dbpedia.org/ontology/alitude>,251,http://MonSchema
+q50,<http://fr.dbpedia.org/resource/Akureyri_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Akureyri,http://MonSchema
+q51,<http://fr.dbpedia.org/resource/Akureyri_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Iceland,http://MonSchema
+q52,<http://fr.dbpedia.org/resource/Akureyri_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,65.66000366210939,http://MonSchema
+q53,<http://fr.dbpedia.org/resource/Akureyri_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,-18.07270050048828,http://MonSchema
+q54,<http://fr.dbpedia.org/resource/Akureyri_Airport>,<http://dbpedia.org/ontology/alitude>,6,http://MonSchema
+q55,<http://fr.dbpedia.org/resource/Egilsstaðir_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Egilsstadir,http://MonSchema
+q56,<http://fr.dbpedia.org/resource/Egilsstaðir_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Iceland,http://MonSchema
+q57,<http://fr.dbpedia.org/resource/Egilsstaðir_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,65.28330230712889,http://MonSchema
+q58,<http://fr.dbpedia.org/resource/Egilsstaðir_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,-14.401399612426758,http://MonSchema
+q59,<http://fr.dbpedia.org/resource/Egilsstaðir_Airport>,<http://dbpedia.org/ontology/alitude>,76,http://MonSchema
+q60,<http://fr.dbpedia.org/resource/Hornafjörður_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Hofn,http://MonSchema
+q61,<http://fr.dbpedia.org/resource/Hornafjörður_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Iceland,http://MonSchema
+q62,<http://fr.dbpedia.org/resource/Hornafjörður_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,64.295601,http://MonSchema
+q63,<http://fr.dbpedia.org/resource/Hornafjörður_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,-15.2272,http://MonSchema
+q64,<http://fr.dbpedia.org/resource/Hornafjörður_Airport>,<http://dbpedia.org/ontology/alitude>,24,http://MonSchema
+q65,<http://fr.dbpedia.org/resource/Húsavík_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Husavik,http://MonSchema
+q66,<http://fr.dbpedia.org/resource/Húsavík_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Iceland,http://MonSchema
+q67,<http://fr.dbpedia.org/resource/Húsavík_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,65.952301,http://MonSchema
+q68,<http://fr.dbpedia.org/resource/Húsavík_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,-17.426001,http://MonSchema
+q69,<http://fr.dbpedia.org/resource/Húsavík_Airport>,<http://dbpedia.org/ontology/alitude>,48,http://MonSchema
+q70,<http://fr.dbpedia.org/resource/Ísafjörður_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Isafjordur,http://MonSchema
+q71,<http://fr.dbpedia.org/resource/Ísafjörður_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Iceland,http://MonSchema
+q72,<http://fr.dbpedia.org/resource/Ísafjörður_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,66.05809783935547,http://MonSchema
+q73,<http://fr.dbpedia.org/resource/Ísafjörður_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,-23.13529968261719,http://MonSchema
+q74,<http://fr.dbpedia.org/resource/Ísafjörður_Airport>,<http://dbpedia.org/ontology/alitude>,8,http://MonSchema
+q75,<http://fr.dbpedia.org/resource/Keflavik_International_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Keflavik,http://MonSchema
+q76,<http://fr.dbpedia.org/resource/Keflavik_International_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Iceland,http://MonSchema
+q77,<http://fr.dbpedia.org/resource/Keflavik_International_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,63.985000610352,http://MonSchema
+q78,<http://fr.dbpedia.org/resource/Keflavik_International_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,-22.605600357055998,http://MonSchema
+q79,<http://fr.dbpedia.org/resource/Keflavik_International_Airport>,<http://dbpedia.org/ontology/alitude>,171,http://MonSchema
+q80,<http://fr.dbpedia.org/resource/Patreksfjörður_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Patreksfjordur,http://MonSchema
+q81,<http://fr.dbpedia.org/resource/Patreksfjörður_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Iceland,http://MonSchema
+q82,<http://fr.dbpedia.org/resource/Patreksfjörður_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,65.555801,http://MonSchema
+q83,<http://fr.dbpedia.org/resource/Patreksfjörður_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,-23.965,http://MonSchema
+q84,<http://fr.dbpedia.org/resource/Patreksfjörður_Airport>,<http://dbpedia.org/ontology/alitude>,11,http://MonSchema
+q85,<http://fr.dbpedia.org/resource/Reykjavik_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Reykjavik,http://MonSchema
+q86,<http://fr.dbpedia.org/resource/Reykjavik_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Iceland,http://MonSchema
+q87,<http://fr.dbpedia.org/resource/Reykjavik_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,64.1299972534,http://MonSchema
+q88,<http://fr.dbpedia.org/resource/Reykjavik_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,-21.9405994415,http://MonSchema
+q89,<http://fr.dbpedia.org/resource/Reykjavik_Airport>,<http://dbpedia.org/ontology/alitude>,48,http://MonSchema
+q90,<http://fr.dbpedia.org/resource/Siglufjörður_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Siglufjordur,http://MonSchema
+q91,<http://fr.dbpedia.org/resource/Siglufjörður_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Iceland,http://MonSchema
+q92,<http://fr.dbpedia.org/resource/Siglufjörður_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,66.133301,http://MonSchema
+q93,<http://fr.dbpedia.org/resource/Siglufjörður_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,-18.9167,http://MonSchema
+q94,<http://fr.dbpedia.org/resource/Siglufjörður_Airport>,<http://dbpedia.org/ontology/alitude>,10,http://MonSchema
+q95,<http://fr.dbpedia.org/resource/Vestmannaeyjar_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Vestmannaeyjar,http://MonSchema
+q96,<http://fr.dbpedia.org/resource/Vestmannaeyjar_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCountry>,Iceland,http://MonSchema
+q97,<http://fr.dbpedia.org/resource/Vestmannaeyjar_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/lat>,63.42430114746094,http://MonSchema
+q98,<http://fr.dbpedia.org/resource/Vestmannaeyjar_Airport>,<http://www.w3.org/2003/01/geo/wgs84_pos/long>,-20.27890014648437,http://MonSchema
+q99,<http://fr.dbpedia.org/resource/Vestmannaeyjar_Airport>,<http://dbpedia.org/ontology/alitude>,326,http://MonSchema
+q100,<http://fr.dbpedia.org/resource/Sault_Ste_Marie_Airport>,<http://sw-portal.deri.org/ontologies/swportal/inCity>,Sault Sainte Marie,http://MonSchema

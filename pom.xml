@@ -1,30 +1,11 @@
-<!--
- Copyright 2016 Google Inc.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
--->
 <project>
   <modelVersion>4.0.0</modelVersion>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
 
-  <groupId>momo54</groupId>
-  <artifactId>WebAndCloud</artifactId>
+  <groupId>Ben</groupId>
+  <artifactId>TinyLDF</artifactId>
 
-  <!--
-    The parent pom defines common style checks and testing strategies for our samples.
-    Removing or replacing it should not affect the execution of the samples in any way.
-  -->
   <parent>
     <groupId>com.google.cloud.samples</groupId>
     <artifactId>shared-configuration</artifactId>
@@ -42,24 +23,16 @@
 
     <checkstyle.skip>true</checkstyle.skip>
     
-    <endpoints.project.id>sobike44</endpoints.project.id>
+    <endpoints.project.id>tinyldf-nantes</endpoints.project.id>
   </properties>
 
-  <repositories>
-    <repository>
-      <id>central</id>
-      <url>https://repo.maven.apache.org/maven2</url>
-    </repository>
-  </repositories>
-
   <dependencies>
-    <!-- Google Endpoints Framework -->
+    <!-- Compile/runtime dependencies -->
     <dependency>
       <groupId>com.google.endpoints</groupId>
       <artifactId>endpoints-framework</artifactId>
       <version>${endpoints.framework.version}</version>
     </dependency>
-
     <!-- [START api_management] -->
     <dependency>
       <groupId>com.google.endpoints</groupId>
@@ -67,7 +40,6 @@
       <version>1.0.12</version>
     </dependency>
     <!-- [END api_management] -->
-
     <dependency>
       <groupId>com.google.appengine</groupId>
       <artifactId>appengine-api-1.0-sdk</artifactId>
@@ -91,6 +63,12 @@
       <artifactId>junit</artifactId>
       <version>4.13</version>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.opencsv</groupId>
+      <artifactId>opencsv</artifactId>
+      <version>5.7.1</version>
     </dependency>
     
     
@@ -150,23 +128,6 @@
           <hostname>${endpoints.project.id}.appspot.com</hostname>
         </configuration>
       </plugin>
-      <!-- [END endpoints_plugin] -->
-
-      <!-- <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>versions-maven-plugin</artifactId>
-        <version>2.7</version>
-        <executions>
-          <execution>
-            <phase>compile</phase>
-            <goals>
-              <goal>display-dependency-updates</goal>
-              <goal>display-plugin-updates</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin> -->
-
     </plugins>
   </build>
 </project>

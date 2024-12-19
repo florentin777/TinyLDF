@@ -6,16 +6,12 @@
   <runtime>java17</runtime>
   <app-engine-apis>true</app-engine-apis>
    <static-files>
-    <include path="/**.html" >
-    </include>
-    <include path="/**.js" >
-    </include>
-    <include path="/**.css" >
-    </include>
-    <include path="/**.svg" >
-    </include>
-
-    
+    <include path="/**.html" />
+    <include path="/**.js" />
+    <include path="/**.css" />
+    <include path="/**.svg" />
+    <include path="/**.png" />
+    <include path="/**.ico" />
   </static-files>
   <system-properties>
     <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
@@ -23,7 +19,7 @@
 <!-- [START env_variables] -->
     <env-variables>
 <!--         <env-var name="ENDPOINTS_SERVICE_NAME" value="${endpoints.project.id}.appspot.com" /> -->
-        <env-var name="ENDPOINTS_SERVICE_NAME" value="sobike44.appspot.com" />
+        <env-var name="ENDPOINTS_SERVICE_NAME" value="cloud-tinyldf.appspot.com" />
 
     </env-variables>
     <!-- [END env_variables] -->

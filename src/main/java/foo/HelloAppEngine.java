@@ -32,13 +32,9 @@ public class HelloAppEngine extends HttpServlet {
     try {
       Thread.sleep(5000);
     } catch (InterruptedException e) {
-      // TODO Auto-generated catch block
+
       e.printStackTrace();
     };
-
-//    int xyz=0;
-//    System.out.println("yop:"+32/xyz);
-
     response.getWriter().println("j:"+j++);
     response.getWriter().println("l:"+l);
   }

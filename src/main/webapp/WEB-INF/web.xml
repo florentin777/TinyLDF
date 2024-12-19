@@ -6,14 +6,13 @@
 	http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
 
-
     <!-- Wrap the backend with Endpoints Frameworks v2. -->
 	<servlet>
 		<servlet-name>EndpointsServlet</servlet-name>
 		<servlet-class>com.google.api.server.spi.EndpointsServlet</servlet-class>
 		<init-param>
 			<param-name>services</param-name>
-			<param-value>foo.ScoreEndpoint</param-value>
+			<param-value>foo.Endpoint</param-value>
 		</init-param>
 	</servlet>
 	<!-- Route API method requests to the backend. -->
@@ -21,7 +20,6 @@
 		<servlet-name>EndpointsServlet</servlet-name>
 		<url-pattern>/_ah/api/*</url-pattern>
 	</servlet-mapping>
-
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
@@ -61,8 +59,6 @@
 <!--         <servlet-name>EndpointsServlet</servlet-name> -->
 <!--     </filter-mapping> -->
 
-
-
 <!-- 	<filter-mapping> -->
 <!-- 		<filter-name>endpoints-api-configuration</filter-name> -->
 <!-- 		<servlet-name>EndpointsServlet</servlet-name> -->
@@ -70,7 +66,5 @@
 <!-- 		<dispatcher>INCLUDE</dispatcher> -->
 <!-- 		<dispatcher>FORWARD</dispatcher> -->
 <!-- 	</filter-mapping> -->
-
-
 
 </web-app>
