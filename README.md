@@ -40,4 +40,4 @@ il y a de la pagination
 
 Le dataset est un petit fragment de celui utilisé dans le projet de Houdart Xavier et Ramdani Djibril sur les aéroports.
 
-Le dataset a une taille de 28589 quads, contenant les liens entre des aéroports, leur villes, pays, altitude, latitude et longitude.
+Le dataset a une taille de 38589 quads, contenant les liens entre des aéroports, leur villes, pays, altitude, latitude et longitude.
